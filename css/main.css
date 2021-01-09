@@ -749,7 +749,7 @@ body.noscroll header.fixed {
     font-family: 'Poppins';
     z-index: -1;
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
