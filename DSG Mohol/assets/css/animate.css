@@ -1,0 +1,580 @@
+@charset "UTF-8";
+
+/*!
+ * animate.css -
+ * Version - 3.5.2
+ * Licensed under the MIT license - 
+ *
+ * Copyright (c) 2021 Ranjit Kolhal
+ */
+/* Header blink text */
+@media only screen and (max-width: 600px){
+  .fast-flicker {
+    padding-left: 0px;
+  }
+}
+@media only screen and (min-width: 700px){
+@font-face {
+  font-family: Clip;
+  src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+}
+.sign {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 40%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 2;
+  left: 40%;
+  top: 50%;
+  font-family: "Clip";
+  text-transform: uppercase;
+  font-size: 6em;
+  color: #ffe6ff;
+  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+    -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+    0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  animation: shine 2s forwards, flicker 3s infinite;
+}
+
+@keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+  28%,
+  33% {
+    color: #ff65bd;
+    text-shadow: none;
+  }
+  82%,
+  97% {
+    color: #ff2483;
+    text-shadow: none;
+  }
+}
+
+.flicker {
+  animation: shine 2s forwards, blink 3s 2s infinite;
+  font-size:30%;
+}
+
+.fast-flicker {
+  animation: shine 2s forwards, blink 10s 1s infinite;
+  font-size:30%;
+}
+.flicker-no{
+  font-size: 30%;
+}
+
+@keyframes shine {
+  0% {
+    color: #6b1839;
+    text-shadow: none;
+  }
+  100% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+      -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+      0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+
+  4% {
+    opacity: 0.9;
+  }
+
+  6% {
+    opacity: 0.85;
+  }
+
+  8% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  11% {
+    opacity: 0.922;
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  14% {
+    opacity: 0.95;
+  }
+
+  16% {
+    opacity: 0.98;
+  }
+
+  17% {
+    opacity: 0.9;
+  }
+
+  19% {
+    opacity: 0.93;
+  }
+
+  20% {
+    opacity: 0.99;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  26% {
+    opacity: 0.94;
+  }
+
+  28% {
+    opacity: 0.98;
+  }
+
+  37% {
+    opacity: 0.93;
+  }
+
+  38% {
+    opacity: 0.5;
+  }
+
+  39% {
+    opacity: 0.96;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  44% {
+    opacity: 0.97;
+  }
+
+  46% {
+    opacity: 0.94;
+  }
+
+  56% {
+    opacity: 0.9;
+  }
+
+  58% {
+    opacity: 0.9;
+  }
+
+  60% {
+    opacity: 0.99;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  72% {
+    opacity: 0.95;
+  }
+
+  93% {
+    opacity: 0.93;
+  }
+
+  95% {
+    opacity: 0.95;
+  }
+
+  97% {
+    opacity: 0.93;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+}
+/* End Fliker text  */
+/*  Start slider  */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+[type=radio] {
+  display: none;
+}
+
+#slider {
+  height: 35vw;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+#slider label {
+  margin: auto;
+  width: 60%;
+  height: 100%;
+  border-radius: 4px;
+  position: absolute;
+  left: 0; right: 0;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+#s1:checked ~ #slide4, #s2:checked ~ #slide5,
+#s3:checked ~ #slide1, #s4:checked ~ #slide2,
+#s5:checked ~ #slide3 {
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+  transform: translate3d(-30%,0,-200px);
+}
+
+#s1:checked ~ #slide5, #s2:checked ~ #slide1,
+#s3:checked ~ #slide2, #s4:checked ~ #slide3,
+#s5:checked ~ #slide4 {
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+  transform: translate3d(-15%,0,-100px);
+}
+
+#s1:checked ~ #slide1, #s2:checked ~ #slide2,
+#s3:checked ~ #slide3, #s4:checked ~ #slide4,
+#s5:checked ~ #slide5 {
+  box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19);
+  transform: translate3d(0,0,0);
+}
+
+#s1:checked ~ #slide2, #s2:checked ~ #slide3,
+#s3:checked ~ #slide4, #s4:checked ~ #slide5,
+#s5:checked ~ #slide1 {
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
+  transform: translate3d(15%,0,-100px);
+}
+
+#s1:checked ~ #slide3, #s2:checked ~ #slide4,
+#s3:checked ~ #slide5, #s4:checked ~ #slide1,
+#s5:checked ~ #slide2 {
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
+  transform: translate3d(30%,0,-200px);
+}
+
+#slide1 { background: #00BCD4 }
+#slide2 { background: #4CAF50 }
+#slide3 { background: #CDDC39 }
+#slide4 { background: #FFC107 }
+#slide5 { background: #FF5722 }
+.sitelogobar{
+  border-radius: 10px;
+}
+
+/* Start Features  */
+
+.boxes {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+  .boxes {
+    padding: 20px;
+    padding-right: 0;
+  }
+}
+.boxes .box {
+  background:transparent;
+  margin: 0 20px 20px 0;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.85;
+  transition: opacity 0.5s;
+}
+.boxes .box:hover {
+  opacity: 2;
+}
+
+
+.boxes .box .image1 {
+  background-image: url(https://images.pexels.com/photos/2058128/pexels-photo-2058128.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .image2 {
+  background-image: url(https://middleeast-business.com/wp-content/uploads/2019/06/library-2.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .image3 {
+  background-image: url(https://5.imimg.com/data5/PM/ED/MY-5862332/school-chemistry-lab-equipment-500x500.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .image4 {
+  background-image: url(https://sdcsjawali.com/images/photos/full/physics-lab1.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .image5 {
+  background-image: url(https://www.asianet.in/uploads/2019/1/211dee6/transport.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .image6 {
+  background-image: url(https://img.eztalks.com/unified-communications/collaborative-work-management.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  cursor: pointer;
+}
+.boxes .box .content-wrapper01 {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.boxes .box .content-wrapper01 h3 {
+  font-weight: 100;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 26px;
+  margin-top: 0;
+  cursor: pointer;
+}
+.boxes .box .content-wrapper01 p {
+  flex-grow: 1;
+  font-size: 15px;
+  line-height: 24px;
+  margin-top: 0;
+}
+.boxes .box .content-wrapper01 a {
+  /* font-weight: 800; */
+  color:aquamarine;
+  font-size: 15px;
+  transition: color 0.5s;
+  text-decoration: none;
+}
+.boxes .box .content-wrapper01 a:hover {
+background: transparent;
+color: red;
+}
+/* End Features  */
+/* Start Notification button  */
+.notebtn{
+  animation:colorchange 5s infinite alternate;
+  
+}
+
+@keyframes colorchange {
+  0% {
+    
+    color: red;
+  }
+  
+  10% {
+    
+    color: #8e44ad;
+  }
+  
+  20% {
+    
+    color: blue;
+  }
+  
+  30% {
+    
+    color: #d35400;
+  }
+  
+  40% {
+    
+    color:green;
+  }
+  
+  50% {
+    
+    color: yellowgreen;
+  }
+  
+  60% {
+    
+    color:aqua;
+  }
+  
+  70% {
+    
+    color:darkviolet;
+  }
+  80% {
+ 
+    color: #f1c40f;
+  }
+  
+  90% {
+ 
+    color: #2980b9;
+  }
+  
+  100% {
+    
+    color: red;
+  }
+}
+.text-white-cont{
+  margin-top: 50px;
+  padding-top: 50px;
+}
+.about-inspiration{
+  width: 100%;
+}
+/* End btn  */
+/* Heading Main start */
+.about-history {
+  font-family: radnika-next, -apple-system, system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 2rem 0 2rem 0;
+  transition: all 0.2s;
+  border-top: 5px solid #ffc600;
+  border-bottom: 5px solid #ffc600;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 700;
+  z-index: 1;
+  text-shadow: 8px 8px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: inline-block;
+}
+.about-history {
+  transform: scale(1.2) rotateX(-20deg) rotateY(10deg);
+}
+.about-history:hover :nth-child(even) {
+  animation-delay: 0.15s;
+}
+.about-history span {
+  display: inline-block;
+  animation-name: wiggle;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translate(0, 0px) rotate(-12deg);
+    text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.1);
+  }
+  65% {
+    transform: translate(0, 15px) rotate(12deg) scale(1.3);
+    text-shadow: -10px -10px 3px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translate(0, 0px) rotate(-12deg);
+    text-shadow: 10px 10px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* TESt  */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
+.total{
+  box-shadow: 0 0 4px grey;
+  /* //font-family: 'Dancing Script', cursive; */
+font-family: 'Pacifico', cursive;
+  /* //margin: 2em; */
+  /* //padding: 2em; */
+  left: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  top: 4em;
+  width: 50%;
+  
+}
+.total:hover{
+  box-shadow: 0 0 10px 8px grey;
+}
+.img-container-about{
+  position: relative;
+ 
+  height: 20rem;
+  box-sizing: border-box;
+}
+/* img{
+  height: 100%;
+  width: 400px;
+   border-radius: 8px 8px 0 0;
+} */
+.details{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  top: 5em;
+  
+  padding: .5em;
+ 
+  box-sizing: border-box;
+}
+.event-date{
+  display: flex;
+  flex-direction: column;
+  top: -30px;
+  background-color: #fd7e14;
+  left: 150px;
+  position: relative;
+  justify-content: center;
+  width: 50px;
+  align-content: center;
+ 
+  
+}
+button{
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid #fd7e14;
+  opacity: .8;
+  background-color: #fff;
+  outline: none;
+  height: 30px;
+  margin-bottom: 20px;
+}
+button:hover{
+  opacity: 1;
+  background-color: #fd7e14;
+  cursor: pointer;
+}
+/* End Heading */
+
+/* Box on about  */
+.total00{
+  /* box-shadow: 0 0 5px rgba(255, 0, 0, 0.4); */
+  border-radius: 10px;
+}
+.total00:hover{
+  box-shadow: 2px 2px 15px 0 rgba(255, 0, 0, 0.4);
+  transition: all 0.5s ease 0s;
+}
+/* End about box  */
